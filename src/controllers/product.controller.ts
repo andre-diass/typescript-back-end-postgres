@@ -3,10 +3,10 @@ import AppDataSource from "../connection";
 import { Product } from "../entities/product.entity";
 
 class productController {
-  findAll(req: Request, res: Response): Response {
+  async findAll(req: Request, res: Response): Promise<Response> {
     const productRepository = AppDataSource.getRepository(Product);
 
-    const products = productRepository.find();
+    const products = await productRepository.find();
 
     return res.status(200).send({ data: [products] });
   }
