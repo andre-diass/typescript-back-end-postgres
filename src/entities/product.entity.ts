@@ -12,9 +12,6 @@ export class Product {
   @Column()
   description: string;
 
-  @Column()
-  weight: number;
-
   @CreateDateColumn({
     name: "created_at",
     type: "timestamp",
