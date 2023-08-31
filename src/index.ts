@@ -4,11 +4,13 @@ dotenv.config();
 import "./connection";
 import productController from "./controllers/product.controller";
 import bodyParser from "body-parser";
+import cors from "cors";
 
 const PORT = process.env.PORT || 8080;
 
 const app = express();
 app.use(bodyParser.json());
+app.use(cors());
 
 app.get("/api/products", productController.findAll);
 app.get("/api/products/:id", productController.findOne);
