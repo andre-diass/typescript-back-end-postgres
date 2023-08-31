@@ -11,10 +11,13 @@ const app = express();
 app.use(bodyParser.json());
 
 app.get("/api/products", productController.findAll);
+app.get("/api/products/:id", productController.findOne);
 app.post("/api/products", productController.create);
+app.put("/api/products/:id", productController.update);
+app.delete("/api/products/:id", productController.delete);
 
 app.get("/", (req, res) => {
-  res.send("server up 2");
+  res.send("server is up");
 });
 
 app.listen(PORT, () => {
